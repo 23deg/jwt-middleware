@@ -1,3 +1,3 @@
-module github.com/aldorado/jwt-middleware
+module github.com/23deg/jwt-middleware
 
 go 1.14

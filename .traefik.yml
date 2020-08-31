@@ -1,6 +1,6 @@
 displayName: JWT Middleware
 type: middleware
-import: github.com/aldorado/jwt-middleware
+import: github.com/23deg/jwt-middleware
 summary: 'Verify JWT Token in auth header and injects decoded payload in header'
 
 testData:
