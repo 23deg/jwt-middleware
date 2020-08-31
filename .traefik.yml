@@ -1,4 +1,4 @@
-displayName: JWT token verify and payload injection
+displayName: JWT Middleware
 type: middleware
 import: github.com/aldorado/jwt-middleware
 summary: 'Verify JWT Token in auth header and injects decoded payload in header'
