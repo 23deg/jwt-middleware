@@ -16,7 +16,7 @@ JWT Middleware is a middleware plugin for [Traefik](https://github.com/containou
 
 secret: SECRET,  
 proxyHeaderName: injectedPayload,  
-authHeader: Authentication,  
+authHeader: Authorization,  
 
 ### Static
 
