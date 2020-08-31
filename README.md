@@ -2,27 +2,24 @@
 
 JWT Middleware is a middleware plugin for [Traefik](https://github.com/containous/traefik) which verifies a jwt token and adds the payload as injected header to the request
 
-## TODOS
-### High priority
-- Correct Errorhandling!
-- TESTS!
-- README
-- expiration check
-
-### Low priority
-- add more hash algorithms 
-
 ## Configuration
 
-secret: SECRET,  
-proxyHeaderName: injectedPayload,  
-authHeader: Authorization,  
-headerPrefix: Bearer
+Activate plugin in your config  
 
-### Static
+```yaml
+http:
+  middlewares:
+    my-jwt-middleware:
+      plugin:
+        jwt-middleware:
+          secret: SECRET
+          proxyHeaderName: injectedPayload
+          authHeader: Authorization
+          headerPrefix: Bearer
+```
 
-TODO
-
-### Dynamic
-
-TODO
+Use as docker-compose label  
+```yaml
+  labels:
+        - "traefik.http.routers.my-service.middlewares=my-jwt-middleware@file"
+```
