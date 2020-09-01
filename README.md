@@ -9,6 +9,7 @@ Start with command
 command:
   - "--experimental.plugins.jwt-middleware.modulename=github.com/23deg/jwt-middleware"
   - "--experimental.plugins.jwt-middleware.version=v0.1.2"
+```
 
 Activate plugin in your config  
 
