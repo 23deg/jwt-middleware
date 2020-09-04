@@ -73,7 +73,7 @@ func (j *JWT) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	
 	verified, verificationError := verifyJWT(token, j.secret)
 	if verificationError != nil {
-		http.Error(res, "Not allowed", http.StatusForbidden)
+		http.Error(res, "Not allowed", http.StatusUnauthorized)
 		return
 	}
 
@@ -92,7 +92,7 @@ func (j *JWT) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 		fmt.Println(req.Header)
 		j.next.ServeHTTP(res, req)
 	} else {
-		http.Error(res, "Not allowed", http.StatusForbidden)
+		http.Error(res, "Not allowed", http.StatusUnauthorized)
 	}
 }
 
@@ -112,7 +112,7 @@ func verifyJWT(token Token, secret string) (bool, error) {
 	
 	decodedVerification, errDecode := base64.RawURLEncoding.DecodeString(token.verification)
 	if errDecode != nil {
-		fmt.Errorf("Could not decode verification")
+		return false, errDecode
 	}
 
 	if hmac.Equal(decodedVerification, expectedMAC) {
