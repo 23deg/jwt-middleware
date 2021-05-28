@@ -61,7 +61,7 @@ func (j *JWT) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	headerToken := req.Header.Get(j.authHeader)
 
 	if len(headerToken) == 0 {
-		http.Error(res, "Request error", http.StatusBadRequest)
+		http.Error(res, "Request error", http.StatusUnauthorized)
 		return
 	}
 	
